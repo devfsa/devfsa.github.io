@@ -1,0 +1,64 @@
+// This is the place to place Bootstrap-related CSS customizations.
+// As example you can start by importing the _bootswatch.scss file from one of the
+// theme provided by https://bootswatch.com .
+
+body.construction {
+  background: #3f1567;
+  background: -moz-linear-gradient(-45deg, #3f1567 0%, #c11c7a 100%);
+  background: -webkit-linear-gradient(-45deg, #3f1567 0%, #c11c7a 100%);
+  background: linear-gradient(135deg, #3f1567 0%, #c11c7a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f1567', endColorstr='#c11c7a', GradientType=1);
+  color: #ffffff;
+  height: 100vh;
+
+  .glitch {
+    font-size: 5rem;
+    font-style: italic;
+    position: relative;
+  }
+
+  @keyframes noise-anim {
+    $steps: 20;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+      }
+    }
+  }
+  .glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -1px 0 red;
+    top: 0;
+    color: white;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: noise-anim 2s infinite linear alternate-reverse;
+  }
+
+  @keyframes noise-anim-2 {
+    $steps: 20;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+      }
+    }
+  }
+
+  .glitch:before {
+    content: attr(data-text);
+    position: absolute;
+    left: -2px;
+    text-shadow: 1px 0 blue;
+    top: 0;
+    color: white;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: noise-anim-2 3s infinite linear alternate-reverse;
+  }
+
+  a {
+    color: white;
+  }
+}
