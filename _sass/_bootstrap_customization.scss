@@ -11,10 +11,18 @@ body.construction {
   color: #ffffff;
   height: 100vh;
 
+  @mixin glitch-logo() {
+    background: url('/assets/img/devfsa-logo-03.svg') no-repeat;
+    width: 500px;
+    height: 80px;
+    background-size: 500px 80px;
+  }
+
   .glitch {
     font-size: 5rem;
     font-style: italic;
     position: relative;
+    @include glitch-logo();
   }
 
   @keyframes noise-anim {
@@ -26,12 +34,13 @@ body.construction {
     }
   }
   .glitch:after {
-    content: attr(data-text);
+    content: ' ';
+    @include glitch-logo();
     position: absolute;
     left: 2px;
-    text-shadow: -1px 0 red;
     top: 0;
-    color: white;
+    -webkit-filter: drop-shadow(-1px 0 red);
+    filter: drop-shadow(-1px 0 red);
     overflow: hidden;
     clip: rect(0, 900px, 0, 0);
     animation: noise-anim 2s infinite linear alternate-reverse;
@@ -47,12 +56,13 @@ body.construction {
   }
 
   .glitch:before {
-    content: attr(data-text);
+    content: ' ';
+    @include glitch-logo();
     position: absolute;
     left: -2px;
-    text-shadow: 1px 0 blue;
     top: 0;
-    color: white;
+    -webkit-filter: drop-shadow(1px 0 blue);
+    filter: drop-shadow(1px 0 blue);
     overflow: hidden;
     clip: rect(0, 900px, 0, 0);
     animation: noise-anim-2 3s infinite linear alternate-reverse;
