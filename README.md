@@ -1,7 +1,1 @@
-# DevFSA Website
-
-## How to run?
-
-```
-$ docker-compose up
-```
+# Site oficial da comunidade DevFSA
