@@ -1,1 +1,1 @@
-console.log('it works');
+import './src/css/style.css'
