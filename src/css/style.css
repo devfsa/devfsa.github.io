@@ -184,6 +184,8 @@ body {
 .keynote-image {
   margin-right: 1rem;
   display: flex;
+  height: 100px;
+  width: 100px;
 }
 .keynote-title {
   color: var(--color-black);
@@ -211,4 +213,37 @@ body {
 }
 .keynote-vote:hover {
   color: var(--color-black);
+}
+@media screen and (max-width: 480px) {
+  .grid-hero,
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: none;
+  }
+  .container {
+    width: 90%;
+  }
+  .meetup-hero {
+    padding: 6rem 5% 2rem 5%;
+  }
+  .keynote-title {
+    margin-bottom: 1rem;
+  }
+  .header {
+    padding: 0 5%;
+    overflow-y: scroll;
+  }
+  .grid-hero > div:first-child {
+    text-align: center;
+  }
+  .meetup-hero .btn-primary {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .nav {
+    display: table;
+  }
+  .support > .container {
+    justify-content: initial;
+  }
 }
