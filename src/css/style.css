@@ -285,6 +285,9 @@ body {
   color: rgba(255,255,255,.7);
   padding-left: 1rem;
 }
+.nav-item:hover {
+  color: rgba(255,255,255,1);
+}
 .card {
   border: 1px solid var(--color-border);
   padding: 1rem;
@@ -351,10 +354,15 @@ body {
   display: flex;
 }
 .keynote-image {
-  margin-right: 1rem;
   display: flex;
   height: 100px;
   width: 100px;
+}
+.keynote-photo {
+  height: 100%;
+}
+.keynote-desc {
+  margin-left: 1rem;
 }
 .keynote-title {
   color: var(--color-black);
