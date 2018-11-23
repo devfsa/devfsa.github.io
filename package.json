@@ -1,0 +1,8 @@
+{
+  "name": "devfsa.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:salatielq/devfsa.github.io.git",
+  "author": "Salatiel Queiroz <salatielsqueiroz@gmail.com>",
+  "license": "MIT"
+}
