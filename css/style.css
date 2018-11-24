@@ -440,5 +440,62 @@ footer a:hover {
   }
   .support > .container {
     justify-content: initial;
+    display: block;
+    text-align: center;
+  }
+
+  footer p {
+    text-align: center;
+  }
+}
+
+@media only screen 
+and (min-device-width : 480PX) 
+and (max-device-width : 768px){
+  .keynote-container .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  } 
+
+  .btn-primary, .btn-secondary{
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .btn-secondary{
+    height: 4rem;
+  }
+
+  .support > .container {
+    justify-content: space-around;
+    display: block;
+    text-align: center;
+  }
+
+  .section .container {
+    width: 90%;
+  }
+
+  footer p {
+    text-align: center;
+  }
+}
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px){
+  .keynote-container .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  } 
+
+  .meetup-hero .btn-secondary {
+    margin: 10px 0;
+  }
+
+  footer p {
+    text-align: center;
   }
 }
