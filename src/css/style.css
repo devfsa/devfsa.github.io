@@ -262,6 +262,24 @@ body {
   display: flex;
   justify-content: space-around;
 }
+footer {
+  background-color: #F3F3F8;
+  padding: .5rem 0;
+}
+footer > .container {
+  display: flex;
+  justify-content: space-between;
+}
+footer > .container > img {
+  width: 120px;
+}
+footer a {
+  color: var(--color-accent);
+  border-bottom: 1px solid transparent;
+}
+footer a:hover {
+  border-bottom: 1px solid var(--color-accent);
+}
 .sub-title,
 .sub-title-link {
   color: var(--color-text);
