@@ -171,6 +171,7 @@
 fetch('https://api.github.com/repos/devfsa/meetups/issues/3/comments')
   .then((response)=> {
       response.json().then((data)=> {
+        data = data.slice(0,4)
         let html = '';
         let keynotes = document.getElementById("keynotes");
         data.forEach(element => {
