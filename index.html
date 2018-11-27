@@ -171,7 +171,32 @@
 fetch('https://api.github.com/repos/devfsa/meetups/issues/3/comments')
   .then((response)=> {
       response.json().then((data)=> {
-        data = data.slice(0,4)
+        const reactionsFetchHeader = { "Accept": "application/vnd.github.squirrel-girl-preview+json" }
+        // will wait all fetch from comments' reactions
+        Promise.all(
+          data.map(d => {
+            const keynote = {
+              url: d.html_url,
+              user: d.user,
+              body: d.body,
+              title: d.body.split('\r\n')[0].replace(/\*\*/g, '')
+            };
+            // will transform array of data into array of promises that returns data
+            return fetch(`${keynote.url}/reactions`, {headers: reactionsFetchHeader})
+              .then(res => res.json())
+              .then(reactions => Object.assign({}, keynote, { reactions: reactions || [] }) )
+              .catch(err => {
+                console.log(`Error fetching reactions of ${keynote.title} // ${keynote.url}`)
+                console.error(err);
+                return Object.assign({}, keynote, { reactions: [] });
+              })
+          })
+        ).then(keynotes => {
+          // after fetching all comments' reactions, sort it and then slice it
+          return keynotes
+            .sort((k1, k2) => k1.reactions.length - k2.reactions.length)
+            .slice(0, 4)
+        });
         let html = '';
         let keynotes = document.getElementById("keynotes");
         data.forEach(element => {
