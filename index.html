@@ -198,7 +198,7 @@ fetch('https://api.github.com/repos/devfsa/meetups/issues/3/comments', {headers:
             .slice(0, 4)
             let html = '';
         let keynotesElement = document.getElementById("keynotes");
-        const keynotesHTML = notes.reduce((html, keynote) => {
+        const keynotesHTML = notes.reduce((html, keynote, i) => {
           const { user, url, body, title, reactions } = keynote
           return [
             html,
@@ -210,9 +210,9 @@ fetch('https://api.github.com/repos/devfsa/meetups/issues/3/comments', {headers:
                 '<a href="', url, '" class="keynote-title" target="_blank">', title, '</a>',
                 '<div class="keynote-info">',
                   '<p class="keynote-author">@', user.login, '</p>',
-                  '<a href="', url, '" class="keynote-vote voted" target="_blank">',
+                  '<a href="', url, '" class="keynote-vote ', i === 0  ? 'voted' : '', '" target="_blank">',
                     '<i class="far fa-arrow-alt-circle-up"></i>',
-                    '<span class="keynote-vote-number">', reactions?reactions.length: 0, '</span>',
+                    '<span class="keynote-vote-number">', reactions.length, '</span>',
                   '</a>',
                 '</div>',
               '</div>',
