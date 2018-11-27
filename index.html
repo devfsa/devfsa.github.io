@@ -199,7 +199,27 @@ fetch('https://api.github.com/repos/devfsa/meetups/issues/3/comments')
         });
         let html = '';
         let keynotes = document.getElementById("keynotes");
-        data.forEach(element => {
+        const keynotesHTML = data.reduce((html, keynote) => {
+          const { user, url, body, title, reactions } = keynote
+          return [
+            html,
+            '<div class="card keynote-card">',
+              '<div class="keynote-image">'
+                '<img src="', user.avatar_url, '" class="keynote-photo" />',
+              '</div>',
+              '<div class="keynote-desc">',
+                '<a href=", url, '" class="keynote-title" target="_blank">', title, '</a>',
+                '<div class="keynote-info">',
+                  '<p class="keynote-author">@', user.login, '</p>',
+                  '<a href="', html_url, '" class="keynote-vote voted" target="_blank">',
+                    '<i class="far fa-arrow-alt-circle-up"></i>',
+                    '<span class="keynote-vote-number">', reactions.length '</span>',
+                  '</a>',
+                '</div>',
+              '</div>',
+            '</div>',
+          ].join('');
+        }, '');
           let { user, html_url, body } = element
           let title = body.split('\r\n')[0].replace('**', '').replace('**', '')
           let description = body.split('\r\n')[1]
