@@ -193,7 +193,7 @@ fetch('https://api.github.com/repos/devfsa/meetups/issues/3/comments')
           html += '</div>'
         });
         console.log(html)
-        keynotes.innerHTML = html
+        keynotes.insertAdjacentHTML('beforeend', html);
 
       });
     }
