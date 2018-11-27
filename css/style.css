@@ -381,6 +381,7 @@ footer a:hover {
 }
 .keynote-desc {
   margin-left: 1rem;
+  width: 100%;
 }
 .keynote-title {
   color: var(--color-black);
