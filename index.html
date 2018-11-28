@@ -148,23 +148,7 @@
             <div class="sub-title">Vagas DEVFSA</div>
             <a href="https://github.com/devfsa/vagas/issues" class="sub-title-link" target="_blank">Ver mais</a>
           </div>
-          <div class="card">
-            <a href="https://github.com/devfsa/vagas/issues/25" class="card-item" target="_blank">
-              <p class="card-item-title">Designer UI/UX e Desenvolvimento...</p>
-              <p class="card-item-description">B Inovação - Feira de Santana - Full-Time</p>
-            </a>
-            <a href="https://github.com/devfsa/vagas/issues/24" class="card-item" target="_blank">
-              <p class="card-item-title">Back-End Developer</p>
-              <p class="card-item-description">Inovatto - Feira de Santana - Full-Time</p>
-            </a>
-            <a href="https://github.com/devfsa/vagas/issues/23" class="card-item" target="_blank">
-              <p class="card-item-title">Front-end Developer</p>
-              <p class="card-item-description">Inovatto - Feira de Santana - Full-Time</p>
-            </a>
-            <a href="https://github.com/devfsa/vagas/issues/22" class="card-item" target="_blank">
-              <p class="card-item-title">Software Engineer</p>
-              <p class="card-item-description">QuintoAndar - São Paulo - Full-Time</p>
-            </a>
+          <div class="card" id="jobs">
           </div>
         </div>
         <div>
@@ -226,5 +210,43 @@
     </div>
   </footer>
 </body>
+<script>
+    fetch('https://api.github.com/repos/devfsa/vagas/issues')
+      .then((response)=> {
+          response.json().then((data)=> {
+              let jobs = data.map(d => {
+                let splitTag = d.title.includes(' na ') ? ' na ' : ' at '
+                let tags = d.title.split(splitTag)[0].split('] ')
+                let body = d.title.includes(splitTag) ? d.title.split(splitTag)[1]: d.title.split(splitTag)[1]
+                let title = tags[tags.length-1]
+                let city = tags[0].replace('[', '')
+                let labels = d.labels.reduce((l, c) => l + ' - ' + c.name, '')
+                return {
+                  url: d.html_url,
+                  body,
+                  title,
+                  labels: d.labels,
+                  city,
+                  description: body + ' - ' + city + labels
+                };
+              })
+              let jobsElement = document.getElementById("jobs");
+              const jobsHTML = jobs.slice(0,4).reduce((html, job, i) => {
+                const { title, url, description } = job
+                return [
+                  html,
+                  '<a href="', url , '" class="card-item" target="_blank">',
+                  '<p class="card-item-title">', title, '</p>',
+                  '<p class="card-item-description">', description, '</p>',
+                  '</a>',  
+                ].join('');
+              }, '');
+              jobsElement.insertAdjacentHTML('beforeend', jobsHTML);
+          });
+        })
+      .catch(function(err) {
+        console.log('Fetch Error:', err);
+      });
+    </script>
 
 </html>
