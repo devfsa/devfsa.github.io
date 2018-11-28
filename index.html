@@ -46,64 +46,7 @@
         </div>
         <div class="keynote-container">
 
-          <div class="grid-2">
-
-            <div class="card keynote-card">
-              <div class="keynote-image"><img src="https://avatars3.githubusercontent.com/u/12628714" class="keynote-photo"></div>
-              <div class="keynote-desc">
-                <a href="https://github.com/devfsa/meetups/issues/3#issuecomment-439546167" class="keynote-title" target="_blank">Introdução ao Hacking</a>
-                <div class="keynote-info">
-                  <p class="keynote-author">@heitorgo1</p>
-                  <a href="https://github.com/devfsa/meetups/issues/3#issuecomment-439546167" class="keynote-vote voted" target="_blank">
-                    <i class="far fa-arrow-alt-circle-up"></i>
-                    <span class="keynote-vote-number">14</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card keynote-card">
-              <div class="keynote-image"><img src="https://avatars3.githubusercontent.com/u/18318393" class="keynote-photo"></div>
-              <div class="keynote-desc">
-                <a href="https://github.com/devfsa/meetups/issues/3#issuecomment-439540220" class="keynote-title" target="_blank">Firebase: Realtime Database vs...</a>
-                <div class="keynote-info">
-                  <p class="keynote-author">@cleybsoncardoso</p>
-                  <a href="https://github.com/devfsa/meetups/issues/3#issuecomment-439540220" class="keynote-vote" target="_blank">
-                    <i class="far fa-arrow-alt-circle-up"></i>
-                    <span class="keynote-vote-number">6</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="card keynote-card">
-              <div class="keynote-image"><img src="https://avatars1.githubusercontent.com/u/20749018" class="keynote-photo"></div>
-              <div class="keynote-desc">
-                <a href="https://github.com/cbo317110" class="keynote-title" target="_blank">Javascript, HTTP Requests e Democrito</a>
-                <div class="keynote-info">
-                  <p class="keynote-author">@cbo317110</p>
-                  <a href="https://github.com/cbo317110" class="keynote-vote" target="_blank">
-                    <i class="far fa-arrow-alt-circle-up"></i>
-                    <span class="keynote-vote-number">5</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card keynote-card">
-              <div class="keynote-image"><img src="https://avatars2.githubusercontent.com/u/21749" class="keynote-photo"></div>
-              <div class="keynote-desc">
-                <a href="https://github.com/devfsa/meetups/issues/3#issuecomment-438902543" class="keynote-title" target="_blank">O patinho feio developer: o que um conto...</a>
-                <div class="keynote-info">
-                  <p class="keynote-author">@ivancrneto</p>
-                  <a href="https://github.com/devfsa/meetups/issues/3#issuecomment-438902543" class="keynote-vote" target="_blank">
-                    <i class="far fa-arrow-alt-circle-up"></i>
-                    <span class="keynote-vote-number">4</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-          </div>
+          <div class="grid-2" id="keynotes"></div>
 
         </div>
       </div>
@@ -226,5 +169,66 @@
     </div>
   </footer>
 </body>
+<script>
+fetch('https://api.github.com/repos/devfsa/meetups/issues/3/comments', {headers: {"Accept": "text"}})
+  .then((response)=> {
+      response.json().then((data)=> {
+        const reactionsFetchHeader = { "Accept": "application/vnd.github.squirrel-girl-preview+json" }
+        // will wait all fetch from comments' reactions
+        Promise.all(
+          data.map(d => {
+            const keynote = {
+              url: d.url,
+              user: d.user,
+              body: d.body,
+              title: d.body.split('\r\n')[0].replace(/\*\*/g, '')
+            };
+            // will transform array of data into array of promises that returns data
+            return fetch(`${keynote.url}/reactions`, {headers: reactionsFetchHeader})
+              .then(res => res.json())
+              .then(reactions => Object.assign({}, keynote, { reactions: reactions || [] }) )
+              .catch(err => {
+                console.log(`Error fetching reactions of ${keynote.title} // ${keynote.url}`)
+                console.error(err);
+                return Object.assign({}, keynote, { reactions: [] });
+              })
+          })
+        ).then(keynotes => {
+          // after fetching all comments' reactions, sort it and then slice it
+          let notes = keynotes
+            .sort((k1, k2) => k2.reactions.length - k1.reactions.length)
+            .slice(0, 4)
+            let html = '';
+        let keynotesElement = document.getElementById("keynotes");
+        const keynotesHTML = notes.reduce((html, keynote, i) => {
+          const { user, url, body, title, reactions } = keynote
+          return [
+            html,
+            '<div class="card keynote-card">',
+              '<div class="keynote-image">',
+                '<img src="', user.avatar_url, '" class="keynote-photo" />',
+              '</div>',
+              '<div class="keynote-desc">',
+                '<a href="', url, '" class="keynote-title" target="_blank">', title, '</a>',
+                '<div class="keynote-info">',
+                  '<p class="keynote-author">@', user.login, '</p>',
+                  '<a href="', url, '" class="keynote-vote ', i === 0  ? 'voted' : '', '" target="_blank">',
+                    '<i class="far fa-arrow-alt-circle-up"></i>',
+                    '<span class="keynote-vote-number">', reactions.length, '</span>',
+                  '</a>',
+                '</div>',
+              '</div>',
+            '</div>',
+          ].join('');
+        }, '');
+        keynotesElement.insertAdjacentHTML('beforeend', keynotesHTML);
+        });
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error:', err);
+  });
+</script>
 
 </html>
