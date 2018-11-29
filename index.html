@@ -163,11 +163,11 @@
   </footer>
 </body>
 <script>
-  fetch('https://api.github.com/repos/devfsa/vagas/issues')
+  fetch('https://api.github.com/repos/devfsa/vagas/issues?state=closed')
     .then((response) => {
       response.json().then((data) => {
         let jobs = data.map(d => {
-          let splitTag = d.title.includes(' na ') ? ' na ' : ' at '
+          let splitTag = d.title.includes(' na ') ? ' na ' : d.title.includes(' no ') ? ' no ' : ' at '
           let tags = d.title.split(splitTag)[0].split('] ')
           let body = d.title.includes(splitTag) ? d.title.split(splitTag)[1] : d.title.split(splitTag)[1]
           let title = tags[tags.length - 1]
@@ -201,7 +201,7 @@
     });
 </script>
 <script>
-  fetch('https://api.github.com/repos/devfsa/meetups/issues/3/comments', { headers: { "Accept": "text" } })
+  fetch('https://api.github.com/repos/devfsa/meetups/issues/4/comments', { headers: { "Accept": "text" } })
     .then((response) => {
       response.json().then((data) => {
         const reactionsFetchHeader = { "Accept": "application/vnd.github.squirrel-girl-preview+json" }
