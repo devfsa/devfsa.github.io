@@ -167,7 +167,7 @@
     .then((response) => {
       response.json().then((data) => {
         let jobs = data.map(d => {
-          let splitTag = d.title.includes(' na ') ? ' na ' : d.title.includes(' no ') ? ' no ' : ' at '
+          const splitTag = /\s+(?:n[ao]|at)\s+/i;
           let tags = d.title.split(splitTag)[0].split('] ')
           let body = d.title.includes(splitTag) ? d.title.split(splitTag)[1] : d.title.split(splitTag)[1]
           let title = tags[tags.length - 1]
