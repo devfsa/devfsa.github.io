@@ -381,6 +381,7 @@ footer a:hover {
 }
 .keynote-desc {
   margin-left: 1rem;
+  width: 100%;
 }
 .keynote-title {
   color: var(--color-black);
@@ -389,6 +390,14 @@ footer a:hover {
   margin-top: 0;
   margin-bottom: 1.8rem;
   display: block;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3em;
+  line-height: 1.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .keynote-info {
   display: flex;
