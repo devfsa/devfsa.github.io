@@ -328,6 +328,12 @@ footer a:hover {
   font-size: 1rem;
   margin: 0;
   transition: all .2s ease-out;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .card-item-description  {
   color: var(--color-text);
@@ -335,6 +341,12 @@ footer a:hover {
   margin-top: .5rem;
   margin-bottom: 0;
   transition: all .2s ease-out;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .space-between {
   display: flex;
@@ -458,14 +470,14 @@ footer a:hover {
   }
 }
 
-@media only screen 
-and (min-device-width : 480PX) 
+@media only screen
+and (min-device-width : 480PX)
 and (max-device-width : 768px){
   .keynote-container .grid-2 {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 2rem;
-  } 
+  }
 
   .btn-primary, .btn-secondary{
     margin: 10px 0;
@@ -491,14 +503,14 @@ and (max-device-width : 768px){
   }
 }
 
-@media only screen 
-and (min-device-width : 768px) 
+@media only screen
+and (min-device-width : 768px)
 and (max-device-width : 1024px){
   .keynote-container .grid-2 {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 2rem;
-  } 
+  }
 
   .meetup-hero .btn-secondary {
     margin: 10px 0;
