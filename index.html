@@ -169,7 +169,7 @@
         let jobs = data.map(d => {
           const splitTag = /\s+(?:n[ao]|at)\s+/i;
           let tags = d.title.split(splitTag)[0].split('] ')
-          let body = d.title.includes(splitTag) ? d.title.split(splitTag)[1] : d.title.split(splitTag)[1]
+          let body = splitTag.test(d.title) ? d.title.split(splitTag)[1] + ' - ' : ''
           let title = tags[tags.length - 1]
           let city = tags[0].replace('[', '')
           let labels = d.labels.reduce((l, c) => l + ' - ' + c.name, '')
@@ -179,11 +179,11 @@
             title,
             labels: d.labels,
             city,
-            description: body + ' - ' + city + labels
+            description: body + city + labels
           };
         })
         let jobsElement = document.getElementById("jobs");
-        const jobsHTML = jobs.slice(0, 4).reduce((html, job, i) => {
+        const jobsHTML = jobs.slice(0, 4).reduce((html, job) => {
           const { title, url, description } = job
           return [
             html,
