@@ -280,6 +280,13 @@ footer a {
 footer a:hover {
   border-bottom: 1px solid var(--color-accent);
 }
+.description-link {
+  color: var(--color-accent);
+  border-bottom: 1px solid transparent;
+}
+.description-link:hover {
+  border-bottom: 1px solid var(--color-accent);
+}
 .sub-title,
 .sub-title-link {
   color: var(--color-text);
