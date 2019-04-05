@@ -254,8 +254,10 @@ body {
 .section {
   padding: 4rem 0;
 }
-.support {
+.section.gray {
   background-color: #F3F3F8;
+}
+.support {
   padding: 2rem 0;
 }
 .support > .container {
