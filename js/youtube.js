@@ -8,19 +8,17 @@ fetch(youtubeQueryURL)
   .then(response => {
     response.json()
       .then(data => {
-        console.log(data);
+        const html = data['items'].slice(0, 3)
+          .map(d => `
+            <div class="video-container">
+              <img src="https://img.youtube.com/vi/${d['id']['videoId']}/maxresdefault.jpg" />
+              <p>${d['snippet']['title']}</p>
+            </div>
+          `)
+          .join('');
 
-        const html = data['items'].slice(0, 4).map(d =>
-        `
-          <div>
-            <img src="${d['snippet']['thumbnails']['high']['url']}" />
-            <h3>${d['snippet']['title']}</h3>
-          </div>
-        `
-        ).join('');
-
-        document.getElementById('youtube-videos').insertAdjacentHTML('beforeend', html);
-    });
+        document.getElementById('youtube-video-gallery').insertAdjacentHTML('beforeend', html);
+      });
   })
   .catch(function (err) {
     console.log('Fetch Error:', err);
