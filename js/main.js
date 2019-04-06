@@ -47,7 +47,7 @@ fetch('https://api.github.com/repos/devfsa/meetups/issues/7/comments', { headers
 
         // will wait all fetch from comments' reactions
         Promise.all(
-          data.forEach(d => {
+          data.map(d => {
             const keynote = {
               url: d.url,
               html_url: d.html_url,
@@ -65,7 +65,7 @@ fetch('https://api.github.com/repos/devfsa/meetups/issues/7/comments', { headers
                 console.error(err);
                 return Object.assign({}, keynote, { reactions: [] });
               });
-          });
+          })
         ).then(keynotes => {
           // after fetching all comments' reactions, sort it and then slice it
           const notes = keynotes.sort((k1, k2) => k2.reactions.length - k1.reactions.length).slice(0, 4);
