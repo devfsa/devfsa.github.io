@@ -10,7 +10,7 @@ fetch(youtubeQueryURL)
       .then(data => {
         console.log(data);
 
-        const html = data['items'].map(d =>
+        const html = data['items'].slice(0, 4).map(d =>
         `
           <div>
             <img src="${d['snippet']['thumbnails']['high']['url']}" />
