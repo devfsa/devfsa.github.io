@@ -232,7 +232,7 @@ body {
 
 .meetup-hero {
   background-color: var(--color-primary);
-  padding: 8rem 15% 3rem 15%
+  padding: 10rem 15% 6rem 15%
 }
 .meetup-hero .btn-primary {
     margin-right: 1rem;
@@ -554,3 +554,13 @@ and (max-device-width : 1024px){
 .youtube-videos #youtube-video-gallery .video-container img {
   width: 100%;
 }
+.youtube-videos .sub-title {
+  color: #fff;
+}
+.youtube-videos .sub-title-link {
+  color: var(--color-primary);
+}
+.youtube-videos .sub-title-link:hover {
+  border-color: var(--color-primary);
+}
+
