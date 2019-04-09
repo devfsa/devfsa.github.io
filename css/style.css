@@ -369,7 +369,11 @@ footer a:hover {
 }
 .btn-primary {
   background-color: var(--color-primary);
-  color: #fff;
+  color: rgba(255,255,255,.7);
+  transition: all .2s ease-out;
+}
+.btn-primary:hover {
+  color: rgba(255,255,255,1);
 }
 .btn-secondary {
   background-color: transparent;
@@ -410,6 +414,10 @@ footer a:hover {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  transition: all .2s ease-out;
+}
+.keynote-title:hover {
+  color: var(--color-accent);
 }
 .keynote-info {
   display: flex;
@@ -560,4 +568,3 @@ and (max-device-width : 1024px){
 .youtube-videos .sub-title {
   color: #fff;
 }
-

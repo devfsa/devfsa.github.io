@@ -83,7 +83,7 @@ fetch('https://api.github.com/repos/devfsa/meetups/issues/7/comments', { headers
               '<p class="keynote-author">@', user.login, '</p>',
               '<a href="', html_url, '" class="keynote-vote ', i === 0 ? 'voted' : '', '" target="_blank">',
               '<i class="far fa-arrow-alt-circle-up"></i>',
-              '<span class="keynote-vote-number">', reactions.length, '</span>',
+              '<span class="keynote-vote-number"> ', reactions.length, '</span>',
               '</a>',
               '</div>',
               '</div>',
