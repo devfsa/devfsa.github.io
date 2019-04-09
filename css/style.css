@@ -375,6 +375,7 @@ footer a:hover {
   background-color: transparent;
   border: 1px solid var(--color-grey-light);
   color: var(--color-text);
+  transition: all .2s ease-out;
 }
 .btn-secondary:hover {
   border-color: var(--color-text);
@@ -546,7 +547,14 @@ and (max-device-width : 1024px){
 .youtube-videos #youtube-video-gallery .video-container {
   width: 32%;
 }
-.youtube-videos #youtube-video-gallery .video-container img {
+.youtube-videos #youtube-video-gallery .video-container a {
+  color: #FFFFFF;
+  transition: all .2s ease-out;
+}
+.youtube-videos #youtube-video-gallery .video-container a:hover {
+  color: var(--color-accent);
+}
+.youtube-videos #youtube-video-gallery .video-container a img {
   width: 100%;
 }
 .youtube-videos .sub-title {

@@ -8,11 +8,14 @@ fetch(youtubeQueryURL)
   .then(response => {
     response.json()
       .then(data => {
+        console.log(data['items']);
         const html = data['items'].slice(0, 3)
           .map(d => `
             <div class="video-container">
-              <img src="https://img.youtube.com/vi/${d['id']['videoId']}/maxresdefault.jpg" />
-              <p>${d['snippet']['title']}</p>
+              <a href="https://www.youtube.com/watch?v=${d['id']['videoId']}" target="_blank">
+                <img src="https://img.youtube.com/vi/${d['id']['videoId']}/maxresdefault.jpg" />
+                <p>${d['snippet']['title']}</p>
+              </a>
             </div>
           `)
           .join('');
