@@ -54,7 +54,7 @@ body {
   left: 0;
   right: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, .05);
+  background-color: var(--color-primary);
   height: 5rem;
   display: flex;
   align-items: center;
@@ -231,25 +231,25 @@ body {
 }
 
 .meetup-hero {
-  background-color: var(--color-primary);
-  padding: 10rem 15% 6rem 15%
+  background-color: white;
+  padding: 10rem 15% 1rem 15%
 }
 .meetup-hero .btn-primary {
     margin-right: 1rem;
 }
 .meetup-hero .btn-secondary {
-  color: #fff;
+  color: var(--color-text);
 }
 .meetup-date {
   font-size: 4rem;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-primary);
   font-weight: 300;
   margin-top: 0;
   margin-bottom: 1rem;
 }
 .meetup-description {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text);
   margin-top: 0;
 }
 section {
@@ -301,7 +301,7 @@ footer a:hover {
   border-bottom: 1px solid var(--color-accent);
 }
 .meetup-hero .sub-title {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text);
 }
 .nav-item {
   color: rgba(255,255,255,.7);
@@ -368,11 +368,7 @@ footer a:hover {
 
 }
 .btn-primary {
-  background-color: var(--color-accent);
-  color: #fff;
-}
-.btn-primary:hover {
-  background-color: var(--color-pink-dark);
+  background-color: var(--color-primary);
   color: #fff;
 }
 .btn-secondary {
@@ -381,8 +377,7 @@ footer a:hover {
   color: var(--color-text);
 }
 .btn-secondary:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  border-color: var(--color-text);
 }
 .keynote-card {
   display: flex;
@@ -526,7 +521,7 @@ and (max-device-width : 1024px){
 }
 
 .youtube-videos {
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
   color: #FFFFFF;
 }
 .youtube-videos .section-header {
@@ -556,11 +551,5 @@ and (max-device-width : 1024px){
 }
 .youtube-videos .sub-title {
   color: #fff;
-}
-.youtube-videos .sub-title-link {
-  color: var(--color-primary);
-}
-.youtube-videos .sub-title-link:hover {
-  border-color: var(--color-primary);
 }
 
