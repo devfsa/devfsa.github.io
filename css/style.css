@@ -219,14 +219,15 @@ section {
 }
 footer {
   background-color: #F3F3F8;
-  padding: .5rem 0;
+  padding: 2rem 0;
 }
 footer > .container {
   display: flex;
   justify-content: space-between;
 }
-footer > .container > img {
+.footer-logo {
   width: 120px;
+  margin: auto;
 }
 footer a {
   color: var(--color-accent);
@@ -235,6 +236,11 @@ footer a {
 footer a:hover {
   border-bottom: 1px solid var(--color-accent);
 }
+
+footer .grid-2 {
+  grid-gap: 0rem;
+}
+
 .description-link {
   color: var(--color-accent);
   border-bottom: 1px solid transparent;
