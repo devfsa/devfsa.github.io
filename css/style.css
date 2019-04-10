@@ -57,7 +57,7 @@ header {
   height: 5rem;
   border-bottom: 0;
   margin: 0 auto 0 auto;
-  padding: 0 15%;
+  padding: 0 3%;
   top: 0;
   left: 0;
   right: 0;
@@ -156,35 +156,6 @@ nav ul > li {
   transform: rotate(-45deg) translate(7px, -8px);
 }
 
-@media only screen and (min-width: 1080px) {
-  .menu-icon {
-    display: none;
-  }
-
-  nav ul {
-    position: initial;
-    display: flex;
-    flex-flow: row nowrap;
-    flex-direction: row;
-    justify-content: flex-end;
-    height: 5rem;
-    margin-top: 0;
-  }
-  nav ul > li {
-    flex: 1 0 auto;
-    align-items: initial;
-  }
-  nav ul a {
-    font-size: 1rem;
-    width: auto;
-    justify-content: flex-end;
-    color: rgba(255,255,255,.7);
-  }
-  nav ul a:hover {
-    color: rgba(255,255,255,1);
-  }
-}
-
 .meetup-hero {
   background-color: white;
   padding: 7rem 15% 1rem 15%
@@ -224,10 +195,15 @@ footer {
 footer > .container {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
+
 .footer-logo {
+  display: flex;
+  justify-content: center;
+}
+.footer-logo > img {
   width: 120px;
-  margin: auto;
 }
 footer a {
   color: var(--color-accent);
@@ -236,11 +212,10 @@ footer a {
 footer a:hover {
   border-bottom: 1px solid var(--color-accent);
 }
-
 footer .grid-2 {
   grid-gap: 0rem;
+  margin: auto;
 }
-
 .description-link {
   color: var(--color-accent);
   border-bottom: 1px solid transparent;
@@ -442,6 +417,11 @@ footer .grid-2 {
 .youtube-videos .sub-title {
   color: #fff;
 }
+@media screen and (min-width: 768px) {
+  header {
+    padding: 0 15%;
+  }
+}
 
 @media screen and (max-width: 768px) {
   .grid-hero,
@@ -473,7 +453,6 @@ footer .grid-2 {
     display: block;
     text-align: center;
   }
-
   footer p {
     text-align: center;
   }
@@ -504,7 +483,7 @@ and (max-width : 768px){
 
   footer p {
     text-align: center;
-  }
+  } 
 }
 
 @media screen and (max-width: 992px) {
@@ -525,7 +504,9 @@ and (max-width : 1200px){
     grid-template-columns: 1fr;
     grid-gap: 2rem;
   }
-
+  footer {
+    padding: 1rem 0;
+  }
   footer p {
     text-align: center;
   }
@@ -537,5 +518,42 @@ and (max-width : 1335px) {
   .meetup-hero .controls .btn-primary {
     margin-bottom: 1rem;
     margin-right: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .menu-icon {
+    display: none;
+  }
+  nav ul {
+    position: initial;
+    display: flex;
+    flex-flow: row nowrap;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 5rem;
+    margin-top: 0;
+  }
+  nav ul > li {
+    flex: 1 0 auto;
+    align-items: initial;
+  }
+  nav ul a {
+    font-size: 1rem;
+    width: auto;
+    justify-content: flex-end;
+    color: rgba(255,255,255,.7);
+  }
+  nav ul a:hover {
+    color: rgba(255,255,255,1);
+  }
+  footer {
+    padding: 0.5rem 0;
+  }
+  footer > .container {
+    flex-direction: row;
+  }
+  .footer-logo {
+    justify-content: left;
   }
 }
