@@ -474,8 +474,8 @@ footer a:hover {
 }
 
 @media only screen
-and (min-device-width : 480PX)
-and (max-device-width : 768px){
+and (min-width : 480px)
+and (max-width : 768px){
   .keynote-container .grid-2 {
     display: grid;
     grid-template-columns: 1fr;
@@ -512,8 +512,8 @@ and (max-device-width : 768px){
 }
 
 @media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1200px){
+and (min-width : 768px)
+and (max-width : 1200px){
   .keynote-container .grid-2 {
     display: grid;
     grid-template-columns: 1fr;
