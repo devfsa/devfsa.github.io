@@ -396,6 +396,47 @@ footer a:hover {
 .keynote-vote:hover {
   color: var(--color-black);
 }
+
+.youtube-videos {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+.youtube-videos .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.youtube-videos .section-header h2,
+.youtube-videos .section-header a {
+ color: var(--color-primary);
+}
+.youtube-videos .section-header a {
+  text-transform: uppercase;
+}
+.youtube-videos .section-header a:hover {
+  text-decoration: underline;
+}
+.youtube-videos #youtube-video-gallery {
+  display: flex;
+  justify-content: space-between;
+}
+.youtube-videos #youtube-video-gallery .video-container {
+  width: 32%;
+}
+.youtube-videos #youtube-video-gallery .video-container a {
+  color: #FFFFFF;
+  transition: all .2s ease-out;
+}
+.youtube-videos #youtube-video-gallery .video-container a:hover {
+  color: var(--color-accent);
+}
+.youtube-videos #youtube-video-gallery .video-container a img {
+  width: 100%;
+}
+.youtube-videos .sub-title {
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
   .grid-hero,
   .grid-2,
@@ -460,6 +501,16 @@ and (max-device-width : 768px){
   }
 }
 
+@media screen and (max-width: 992px) {
+  .youtube-videos #youtube-video-gallery {
+    flex-wrap: wrap;
+  }
+  .youtube-videos #youtube-video-gallery .video-container {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1200px){
@@ -481,44 +532,4 @@ and (max-device-width : 1335px) {
     margin-bottom: 1rem;
     margin-right: 1rem;
   }
-}
-
-.youtube-videos {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
-}
-.youtube-videos .section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.youtube-videos .section-header h2,
-.youtube-videos .section-header a {
- color: var(--color-primary);
-}
-.youtube-videos .section-header a {
-  text-transform: uppercase;
-}
-.youtube-videos .section-header a:hover {
-  text-decoration: underline;
-}
-.youtube-videos #youtube-video-gallery {
-  display: flex;
-  justify-content: space-between;
-}
-.youtube-videos #youtube-video-gallery .video-container {
-  width: 32%;
-}
-.youtube-videos #youtube-video-gallery .video-container a {
-  color: #FFFFFF;
-  transition: all .2s ease-out;
-}
-.youtube-videos #youtube-video-gallery .video-container a:hover {
-  color: var(--color-accent);
-}
-.youtube-videos #youtube-video-gallery .video-container a img {
-  width: 100%;
-}
-.youtube-videos .sub-title {
-  color: #fff;
 }
