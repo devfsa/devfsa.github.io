@@ -450,9 +450,13 @@ footer .grid-2 {
     margin-right: 0;
   }
   .support > .container {
-    justify-content: initial;
-    display: block;
+    flex-wrap: wrap;
     text-align: center;
+  }
+
+  .support > .container a {
+    width: 100%;
+    margin: .5rem 0rem;
   }
   footer p {
     text-align: center;
