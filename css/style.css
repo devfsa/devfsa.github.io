@@ -113,9 +113,9 @@ nav ul > li {
   display: flex;
 }
 .menu-icon {
-  width: 5rem;
+  width: 2.5rem;
   height: 5rem;
-  padding: 24px;
+  padding: 24px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
