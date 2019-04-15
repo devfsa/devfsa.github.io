@@ -195,9 +195,10 @@ section {
 .support .partners .image-container {
   width: 25%;
   margin-bottom: 1rem;
+  text-align: center;
 }
 .support .partners .image-container img {
-  width: 80%;
+  width: 60%;
   text-align: center;
   transition: all .2s ease-out;
   filter: grayscale(100%);
@@ -504,6 +505,9 @@ and (max-width : 768px){
     width: 100%;
     margin-bottom: 1rem;
   }
+  .support .partners .image-container img {
+    width: 80%;
+  }
 }
 
 @media only screen
@@ -513,6 +517,9 @@ and (max-width : 1200px){
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 2rem;
+  }
+  .support .partners .image-container img {
+    width: 70%;
   }
   footer {
     padding: 1rem 0;
