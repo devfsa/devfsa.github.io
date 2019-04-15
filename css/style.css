@@ -53,6 +53,7 @@ header {
   display: flex;
   flex-flow: row nowrap;
   position: fixed;
+  z-index: 999;
   background: var(--color-primary);
   height: 5rem;
   border-bottom: 0;
@@ -185,9 +186,29 @@ nav ul > li {
 section {
   padding: 2rem 0;
 }
-.support > .container {
+.support .partners {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
+}
+.support .sub-title {
+  margin-bottom: 0;
+}
+.support .partners .image-container {
+  width: 25%;
+  margin-bottom: 1rem;
+}
+.support .partners .image-container img {
+  width: 80%;
+  text-align: center;
+  transition: all .2s ease-out;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+.support .partners .image-container img:hover {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
 }
 footer {
   background-color: #F3F3F8;
@@ -418,9 +439,10 @@ footer .grid-2 {
 .youtube-videos .sub-title {
   color: #fff;
 }
-@media screen and (min-width: 768px) {
-  header {
-    padding: 0 15%;
+
+@media screen and (max-width: 600px) {
+  .support .partners .image-container {
+    width: 50%;
   }
 }
 
@@ -449,17 +471,13 @@ footer .grid-2 {
   .meetup-hero .btn-primary {
     margin-right: 0;
   }
-  .support > .container {
-    flex-wrap: wrap;
-    text-align: center;
-  }
-
-  .support > .container a {
-    width: 100%;
-    margin: .5rem 0rem;
-  }
   footer p {
     text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  header {
+    padding: 0 15%;
   }
 }
 
@@ -476,19 +494,9 @@ and (max-width : 768px){
     text-align: center;
   }
 
-  .support > .container {
-    justify-content: space-around;
-    display: block;
-    text-align: center;
-  }
-
-  .section .container {
-    width: 90%;
-  }
-
   footer p {
     text-align: center;
-  } 
+  }
 }
 
 @media screen and (max-width: 992px) {

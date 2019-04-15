@@ -8,3 +8,4 @@ Gemfile.lock
 vendor
 .bundle
 dist
+.DS_Store
