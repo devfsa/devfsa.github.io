@@ -192,9 +192,6 @@ section {
   justify-content: space-around;
   align-items: center;
 }
-.support .sub-title {
-  margin-bottom: 0;
-}
 .support .partners .image-container {
   width: 25%;
   margin-bottom: 1rem;
