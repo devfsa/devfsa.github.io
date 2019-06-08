@@ -1,3 +1,4 @@
+const MEETUP_ISSUE_ID = 14;
 fetch('https://api.github.com/repos/devfsa/vagas/issues')
   .then(response => {
     response.json()
@@ -39,7 +40,7 @@ fetch('https://api.github.com/repos/devfsa/vagas/issues')
     console.log('Fetch Error:', err);
   });
 
-fetch('https://api.github.com/repos/devfsa/meetups/issues/13/comments', { headers: { "Accept": "text" } })
+fetch(`https://api.github.com/repos/devfsa/meetups/issues/${MEETUP_ISSUE_ID}/comments`, { headers: { "Accept": "text" } })
   .then(response => {
     response.json()
       .then(data => {
