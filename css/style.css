@@ -159,7 +159,7 @@ nav ul > li {
 
 .meetup-hero {
   background-color: white;
-  padding: 7rem 15% 1rem 15%
+  padding: 7rem 15% 3rem 15%
 }
 .meetup-hero .controls {
   display: flex;
@@ -184,7 +184,7 @@ nav ul > li {
   margin-top: 0;
 }
 section {
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 .support .partners {
   display: flex;
@@ -398,10 +398,6 @@ footer .grid-2 {
   color: var(--color-black);
 }
 
-.youtube-videos {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
-}
 .youtube-videos .section-header {
   display: flex;
   justify-content: space-between;
@@ -425,7 +421,7 @@ footer .grid-2 {
   width: 32%;
 }
 .youtube-videos #youtube-video-gallery .video-container a {
-  color: #FFFFFF;
+  color: black;
   transition: all .2s ease-out;
 }
 .youtube-videos #youtube-video-gallery .video-container a:hover {
@@ -433,9 +429,6 @@ footer .grid-2 {
 }
 .youtube-videos #youtube-video-gallery .video-container a img {
   width: 100%;
-}
-.youtube-videos .sub-title {
-  color: #fff;
 }
 
 @media screen and (max-width: 600px) {
@@ -571,6 +564,9 @@ and (max-width : 1376px) {
   }
   footer {
     padding: 0.5rem 0;
+  }
+  footer span {
+    color: var(--color-accent);
   }
   footer > .container {
     flex-direction: row;
