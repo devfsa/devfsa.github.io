@@ -99,3 +99,10 @@ fetch(`https://api.github.com/repos/devfsa/meetups/issues/${MEETUP_ISSUE_ID}/com
   .catch(err => {
     console.log('Fetch Error:', err);
   });
+
+window.onload = (ev) => {
+    let submissionDOM = document.getElementById('submission');
+    let seeallDom = document.getElementById('seeall');
+    submissionDOM.href=`https://github.com/devfsa/meetups/issues/${MEETUP_ISSUE_ID}`;
+    seeallDom.href=`https://github.com/devfsa/meetups/issues/${MEETUP_ISSUE_ID}`;
+}
