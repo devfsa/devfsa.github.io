@@ -40,6 +40,7 @@ fetch('https://api.github.com/repos/devfsa/vagas/issues')
     console.log('Fetch Error:', err);
   });
 
+
 fetch(`https://api.github.com/repos/devfsa/meetups/issues/${MEETUP_ISSUE_ID}/comments`, { headers: { "Accept": "text" } })
   .then(response => {
     response.json()
